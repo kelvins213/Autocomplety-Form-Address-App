@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:student_location/data/location_api.dart';
 
 class StudentLocation extends StatefulWidget{
   const StudentLocation({Key? key}) : super(key:key);
@@ -8,6 +9,9 @@ class StudentLocation extends StatefulWidget{
 }
 
 class _StudentLocation extends State<StudentLocation>{
+
+  Future<List<dynamic>> countries = CountryNames().getCountriesName();
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
