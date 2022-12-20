@@ -5,9 +5,9 @@ import 'package:http/http.dart';
 
 class CountryNames{
 
-  Future<List<dynamic>> getCountriesName() async {
+  Future<List<String>> getCountriesName() async {
 
-    List<dynamic> countries = <dynamic>[];
+    List<String> countries = <String>[];
     String baseUrl = "servicodados.ibge.gov.br";
     Uri url = Uri.http(baseUrl, "/api/v1/localidades/paises");
     Response response = await http.get(url);
@@ -17,18 +17,15 @@ class CountryNames{
 
     if (response.statusCode == 200) {
       var json = jsonDecode(response.body);
-      for (var country in json) {
-        countries.add(country);
+      for (var i = 0; i < json.length; i++) {
+        countries.add(json[i]['nome']);
+        print(countries);
       }
-    }
 
-    for (var i = 0; i < countries.length; i++) {
-      print(countries[i]['nome']); //tem todos os paises aqui
     }
 
     return countries;
     //Link do vídeo para encontrar a cidade pelo CEP
     //https://youtu.be/r3LcUSQVmFs
-
   }
 }

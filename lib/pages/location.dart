@@ -10,7 +10,7 @@ class StudentLocation extends StatefulWidget{
 
 class _StudentLocation extends State<StudentLocation>{
 
-  Future<List<dynamic>> countries = CountryNames().getCountriesName();
+  Future<List<String>> countries = CountryNames().getCountriesName();
 
   @override
   Widget build(BuildContext context){
@@ -22,7 +22,56 @@ class _StudentLocation extends State<StudentLocation>{
         centerTitle: true,
       ),
       //vai precisar cercar com Futurebuilder()
-      body: Padding(
+      body: FutureBuilder<List<String>>(
+        future: countries,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: ListView(
+                children: [
+                  Card(
+                    color: const Color(0xFF3C2A21),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Padding(
+                      padding:  EdgeInsets.all(12.0),
+                      child: Container(
+                        height: 400,
+                        child: Column(
+                          children: [
+
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          } else {
+            return Center(child: CircularProgressIndicator());
+          }
+        },
+      ),
+    );
+  }
+
+
+  buildText({required String text, required double size}){
+    return Text(
+       text,
+       style: TextStyle(
+         fontSize: size,
+         fontWeight: FontWeight.bold,
+       ),
+    );
+  }
+}
+
+/*
+Padding(
         padding: const EdgeInsets.all(12.0),
         child: ListView(
           children: [
@@ -46,18 +95,4 @@ class _StudentLocation extends State<StudentLocation>{
           ],
         ),
       ),
-    );
-  }
-
-
-  buildText({required String text, required double size}){
-    return Text(
-       text,
-       style: TextStyle(
-         fontSize: size,
-         fontWeight: FontWeight.bold,
-       ),
-    );
-  }
-
-}
+*/
