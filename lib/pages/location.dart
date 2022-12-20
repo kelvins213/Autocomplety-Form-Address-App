@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:student_location/data/location_api.dart';
 
 class StudentLocation extends StatefulWidget{
@@ -26,6 +27,7 @@ class _StudentLocation extends State<StudentLocation>{
         future: countries,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
+            List dropDownItems = snapshot.data ?? [];
             return Padding(
               padding: const EdgeInsets.all(12.0),
               child: ListView(
@@ -41,7 +43,30 @@ class _StudentLocation extends State<StudentLocation>{
                         height: 400,
                         child: Column(
                           children: [
+                            Row(
+                              children: [
+                                TypeAheadFormField(
+                                  textFieldConfiguration: TextFieldConfiguration(
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      hintText: "País",
+                                    ),
+                                  ),
+                                    itemBuilder: (context, sugestion) {
+                                      return ListTile(
 
+                                      );
+                                    },
+                                    suggestionsCallback: (pattern) async {
+                                      return await BackendService.getSuggestions(pattern);
+                                      //implementar a classe BackendService
+                                    }
+                                    onSuggestionSelected: (suggestion) {
+                                      
+                                    },
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -70,29 +95,3 @@ class _StudentLocation extends State<StudentLocation>{
   }
 }
 
-/*
-Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: ListView(
-          children: [
-            Card(
-              color: const Color(0xFF3C2A21),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Padding(
-                padding:  EdgeInsets.all(12.0),
-                child: Container(
-                  height: 400,
-                  child: Column(
-                    children: [
-
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-*/
