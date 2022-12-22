@@ -1,14 +1,9 @@
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
 class CountryNames{
-
   Future<List<String>> getCountriesName() async {
-
-    List<DropdownMenuItem<String>> menuItems = <DropdownMenuItem<String>>[];
 
     List<String> countries = <String>[];
     String baseUrl = "servicodados.ibge.gov.br";
