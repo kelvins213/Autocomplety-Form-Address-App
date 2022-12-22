@@ -63,6 +63,7 @@ class _StudentLocation extends State<StudentLocation>{
                               buildTextFormField(controller: streetController, title: "Rua"),
                               buildTextFormField(controller: numberController, title: "Numero"),
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   ElevatedButton(
                                     style: ElevatedButton.styleFrom(
