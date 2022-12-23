@@ -21,15 +21,15 @@ The Postcode API base url is ```viacep.com.br```, and when you add the path ```/
 the form, the app queries to my ```nodeJS API```, by the ```route "/insertAdress/:country/:state/:city/:cep/:neighborhood/:street/:number"```,
 which ```insert the data on MongoDB.```
 
-*NodeJS base url: locationapi.fhyvugvfjudgf.repl.co
+* NodeJS base url: locationapi.fhyvugvfjudgf.repl.co
 
 [comment]: <> (you must add the app video here, who going to show how it's working)
 
 ## Conclusion
 The task has deeply opened my mind, because, now, ```I know``` how to use a ```public API```, which could give us important data for free, usually required for our application to work properly. Besides, I also got how the programming languages could be put together. My nodeJS API, for example, was made with ```Javascript```, meanwhile, the application with ```Flutter```, and they’re all ```connected``` now! Finally, I also noticed how the programming has been divided, like, FRONT, BACK and API. Therefore, we can have different teams working on them, without having conflicts with each other.
 
-## Code
-The source code is available on branch main. If you want to test it, you can clone or fork the repository on VScold on AndroidStudio. When done, make sure to run ***flutter pub get*** and ***flutter pub upgrade*** on the terminal to get and update the dart SDK and all the packages required to build the project. Remenber, also, to run the nodeJS api, which is local deployed on replit, at https://replit.com/@fhyvugvfjudgf/locationapi.
+## Source Code
+The source code is available on branch main. If you want to test it, you can clone or fork the repository on VScold or AndroidStudio. When done, make sure to run ***flutter pub get*** and ***flutter pub upgrade*** on the terminal to get and update the dart SDK and all the packages required to build the project. Remenber, also, to run the nodeJS api, which is local deployed on replit, at https://replit.com/@fhyvugvfjudgf/locationapi.
 
 ```
 1 - Fork or git clone
