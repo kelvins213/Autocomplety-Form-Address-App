@@ -23,6 +23,10 @@ class _StudentLocation extends State<StudentLocation>{
   TextEditingController streetController = TextEditingController();
   TextEditingController numberController = TextEditingController();
 
+  dynamic snackBar = SnackBar(
+    content: Text('Seus dados foram salvos!'),
+  );
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -55,6 +59,7 @@ class _StudentLocation extends State<StudentLocation>{
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
+                              //we implement a Listview.builder here
                               buildTextFormField(controller: countryController, title: "Pais"),
                               buildTextFormField(controller: stateController, title: "Estado"),
                               buildTextFormField(controller: cepController, title: "CEP"),
@@ -119,7 +124,8 @@ class _StudentLocation extends State<StudentLocation>{
   onPressed() async {
     if (_formKey.currentState!.validate()) {
       Location().insertCountry(country: countryController.text, state: stateController.text, city: cityController.text, neighborhood: neighborhoodController.text, street: streetController.text, cep: cepController.text, number: numberController.text);
-
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      countryController.text = ""; stateController.text = ""; cityController.text = ""; neighborhoodController.text = ""; cepController.text = ""; streetController.text = ""; numberController.text = "";
     } else {
       if (cepController.text != null) {
         var cep = int.parse(cepController.text);
@@ -134,5 +140,4 @@ class _StudentLocation extends State<StudentLocation>{
       }
     }
   }
-
 }
