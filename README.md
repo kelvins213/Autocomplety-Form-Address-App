@@ -23,7 +23,7 @@ which ```insert the data on MongoDB.```
 
 * NodeJS base url: locationapi.fhyvugvfjudgf.repl.co
 
-[comment]: <> (you must add the app video here, who going to show how it's working)
+[registering.webm](https://user-images.githubusercontent.com/103438311/209563715-7e53bd9c-9b57-4f07-b2ae-3007663c017e.webm)
 
 ## Conclusion
 The task has deeply opened my mind, because, now, ```I know``` how to use a ```public API```, which could give us important data for free, usually required for our application to work properly. Besides, I also got how the programming languages could be put together. My nodeJS API, for example, was made with ```Javascript```, meanwhile, the application with ```Flutter```, and they’re all ```connected``` now! Finally, I also noticed how the programming has been divided, like, FRONT, BACK and API. Therefore, we can have different teams working on them, without having conflicts with each other.
