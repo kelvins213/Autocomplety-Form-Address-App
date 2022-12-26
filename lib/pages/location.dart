@@ -24,15 +24,24 @@ class _StudentLocation extends State<StudentLocation>{
   TextEditingController numberController = TextEditingController();
 
   dynamic snackBar = SnackBar(
-    content: Text('Seus dados foram salvos!'),
+    backgroundColor: const Color(0xFF227C70),
+    content: Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("Your data was saved!", style: TextStyle(fontSize: 18),)
+        ],
+      ),
+    ),
   );
+
 
   @override
   Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: const Color(0xFF86C8BC),
       appBar: AppBar(
-        title: buildText(text: "Cadastrar Localização", size: 24),
+        title: buildText(text: "Register Address", size: 24),
         backgroundColor: const Color(0xFF227C70), //D5CEA3
         centerTitle: true,
       ),
@@ -60,13 +69,13 @@ class _StudentLocation extends State<StudentLocation>{
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               //we implement a Listview.builder here
-                              buildTextFormField(controller: countryController, title: "Pais"),
-                              buildTextFormField(controller: stateController, title: "Estado"),
-                              buildTextFormField(controller: cepController, title: "CEP"),
-                              buildTextFormField(controller: cityController, title: "Cidade"),
-                              buildTextFormField(controller: neighborhoodController, title: "Bairro"),
-                              buildTextFormField(controller: streetController, title: "Rua"),
-                              buildTextFormField(controller: numberController, title: "Numero"),
+                              buildTextFormField(controller: countryController, title: "Country"),
+                              buildTextFormField(controller: stateController, title: "State"),
+                              buildTextFormField(controller: cepController, title: "Postcode"),
+                              buildTextFormField(controller: cityController, title: "City"),
+                              buildTextFormField(controller: neighborhoodController, title: "Neighborhood"),
+                              buildTextFormField(controller: streetController, title: "Street"),
+                              buildTextFormField(controller: numberController, title: "Number"),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
