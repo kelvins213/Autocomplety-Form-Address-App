@@ -41,7 +41,7 @@ class _StudentLocation extends State<StudentLocation>{
     return Scaffold(
       backgroundColor: const Color(0xFF86C8BC),
       appBar: AppBar(
-        title: buildText(text: "Register Address", size: 24),
+        title: buildText(text: "Cadastrar Endereço", size: 24),
         backgroundColor: const Color(0xFF227C70), //D5CEA3
         centerTitle: true,
       ),
@@ -68,14 +68,14 @@ class _StudentLocation extends State<StudentLocation>{
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              //we implement a Listview.builder here
-                              buildTextFormField(controller: countryController, title: "Country"),
-                              buildTextFormField(controller: stateController, title: "State"),
-                              buildTextFormField(controller: cepController, title: "Postcode"),
-                              buildTextFormField(controller: cityController, title: "City"),
-                              buildTextFormField(controller: neighborhoodController, title: "Neighborhood"),
-                              buildTextFormField(controller: streetController, title: "Street"),
-                              buildTextFormField(controller: numberController, title: "Number"),
+                              //we can implement a Listview.builder here
+                              buildTextFormField(controller: countryController, title: "Pais"),
+                              buildTextFormField(controller: stateController, title: "Estado"),
+                              buildTextFormField(controller: cepController, title: "CEP"),
+                              buildTextFormField(controller: cityController, title: "Cidade"),
+                              buildTextFormField(controller: neighborhoodController, title: "Bairro"),
+                              buildTextFormField(controller: streetController, title: "Rua"),
+                              buildTextFormField(controller: numberController, title: "Numero"),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
@@ -144,7 +144,6 @@ class _StudentLocation extends State<StudentLocation>{
           cityController.text = json['localidade'];
           neighborhoodController.text = json['bairro'];
           streetController.text = json['logradouro'];
-          numberController.text = json['ddd'];
         }
       }
     }
