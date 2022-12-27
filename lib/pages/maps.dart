@@ -12,10 +12,9 @@ class MapAddres extends StatefulWidget{
 class _MapAddres extends State<MapAddres>{
 
   static const _initialCameraPosition = CameraPosition(
-      target: LatLng(37.773972, -122.431297),
-      zoom: 11.5,
+    target: LatLng(37.773972, -122.431297),
+    zoom: 11.5,
   );
-
 
   @override
   Widget build(BuildContext context){
@@ -26,9 +25,8 @@ class _MapAddres extends State<MapAddres>{
         centerTitle: true,
       ),
       body: GoogleMap(
-        myLocationButtonEnabled: false,
-        zoomControlsEnabled: false,
         initialCameraPosition: _initialCameraPosition,
+        mapType: MapType.normal,
       ),
     );
   }
