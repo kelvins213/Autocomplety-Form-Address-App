@@ -8,7 +8,6 @@ class StudentLocation extends StatefulWidget{
   const StudentLocation({Key? key}) : super(key:key);
   @override
   _StudentLocation createState() => _StudentLocation();
-
 }
 
 class _StudentLocation extends State<StudentLocation>{
