@@ -134,6 +134,9 @@ class _StudentLocation extends State<StudentLocation>{
       Location().insertCountry(country: countryController.text, state: stateController.text, city: cityController.text, neighborhood: neighborhoodController.text, street: streetController.text, cep: cepController.text, number: numberController.text);
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       countryController.text = ""; stateController.text = ""; cityController.text = ""; neighborhoodController.text = ""; cepController.text = ""; streetController.text = ""; numberController.text = "";
+      Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (context) {return MapAddres();}),
+      );
     } else {
       if (cepController.text != null) {
         var cep = int.parse(cepController.text);

@@ -32,7 +32,8 @@ dependencies:
   flutter:
     sdk: flutter
   http:
-  flutter_typeahead:
+  google_maps_flutter:
+  geocoding:
 
 
   # The following adds the Cupertino Icons font to your application.
