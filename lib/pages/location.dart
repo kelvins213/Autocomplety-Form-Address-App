@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:student_location/data/adress_api.dart';
 import 'package:student_location/data/location_api.dart';
+import 'package:student_location/data/map_api.dart';
 import 'package:student_location/data/student_api.dart';
+import 'package:student_location/pages/maps.dart';
 
 class StudentLocation extends StatefulWidget{
   const StudentLocation({Key? key}) : super(key:key);
@@ -130,17 +133,17 @@ class _StudentLocation extends State<StudentLocation>{
   }
 
   onPressed() async {
+
     if (_formKey.currentState!.validate()) {
       Location().insertCountry(country: countryController.text, state: stateController.text, city: cityController.text, neighborhood: neighborhoodController.text, street: streetController.text, cep: cepController.text, number: numberController.text);
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      countryController.text = ""; stateController.text = ""; cityController.text = ""; neighborhoodController.text = ""; cepController.text = ""; streetController.text = ""; numberController.text = "";
-      Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) {return MapAddres();}),
-      );
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return MapAddres(city: cityController.text, postcode: cepController.text, country: countryController.text,);}));
+      //countryController.text = ""; stateController.text = ""; cityController.text = ""; neighborhoodController.text = ""; cepController.text = ""; streetController.text = ""; numberController.text = "";
     } else {
       if (cepController.text != null) {
         var cep = int.parse(cepController.text);
         var json = await CEPAdress().getAdress(cep: cep);
+        //do better
         if (json['cep'] != null) {
           stateController.text = json['uf'];
           cityController.text = json['localidade'];

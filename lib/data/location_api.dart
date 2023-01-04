@@ -3,8 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
 class CountryNames{
-  Future<List<String>> getCountriesName() async {
 
+  Future<List<String>> getCountriesName() async {
     List<String> countries = <String>[];
     String baseUrl = "servicodados.ibge.gov.br";
     Uri url = Uri.http(baseUrl, "/api/v1/localidades/paises");
