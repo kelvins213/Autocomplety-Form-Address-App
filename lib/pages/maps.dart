@@ -28,7 +28,7 @@ class _MapAddres extends State<MapAddres>{
   cameraPosition({required double lat, required double long}){
     _initialCameraPosition = CameraPosition(
       target: LatLng(lat, long),
-      zoom: 11.5,
+      zoom: 20,
     );
   }
 
@@ -38,7 +38,7 @@ class _MapAddres extends State<MapAddres>{
     return Scaffold(
       backgroundColor: const Color(0xFF86C8BC),
       appBar: AppBar(
-        title: buildText(text: "Localizaçao", size: 24),
+        title: buildText(text: "Localização", size: 24),
         backgroundColor: const Color(0xFF227C70), //D5CEA3
         centerTitle: true,
       ),
@@ -50,8 +50,6 @@ class _MapAddres extends State<MapAddres>{
                 if (snapshot.hasData) {
                   dynamic coordinates = snapshot.data ?? [];
                   cameraPosition(lat: coordinates.latitude, long: coordinates.longitude);
-                  print(coordinates.latitude);
-                  print(coordinates.longitude);
                   return Container(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
@@ -68,19 +66,6 @@ class _MapAddres extends State<MapAddres>{
         ],
       ),
     );
-    /*
-    return Scaffold(
-      appBar: AppBar(
-        title: buildText(text: "Localização", size: 24),
-        backgroundColor: const Color(0xFF227C70),
-        centerTitle: true,
-      ),
-      body: GoogleMap(
-        initialCameraPosition: _initialCameraPosition,
-        mapType: MapType.normal,
-      ),
-    );
-    */
   }
 
   buildText({required String text, required double size}){

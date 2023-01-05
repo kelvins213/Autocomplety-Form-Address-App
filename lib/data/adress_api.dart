@@ -1,7 +1,7 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:student_location/domain/adress.dart';
 
 class CEPAdress {
 
@@ -17,4 +17,14 @@ class CEPAdress {
 
     return json;
   }
+
+  void setFormControllers({required dynamic json,required TextEditingController cityController, required TextEditingController neighborhoodController, required TextEditingController stateController, required TextEditingController streetController}){
+    if (json['cep'] != null) {
+      stateController.text = json['uf'];
+      cityController.text = json['localidade'];
+      neighborhoodController.text = json['bairro'];
+      streetController.text = json['logradouro'];
+    }
+  }
+
 }

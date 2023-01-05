@@ -1,5 +1,4 @@
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 
 class Location{
   final String baseUrl = "locationapi.fhyvugvfjudgf.repl.co";
